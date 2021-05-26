@@ -8,6 +8,8 @@ defmodule CryptoPoller.Application do
   def start(_type, _args) do
     children = [
       CryptoPoller.Repo,
+      CryptoPoller.Pipeline.ArchiveProducer,
+      CryptoPoller.Pipeline.ArchiveHandler,
       CryptoPoller.Jobs.FetchPoolHistory
     ]
 
