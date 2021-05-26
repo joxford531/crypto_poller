@@ -10,7 +10,8 @@ defmodule CryptoPoller.Application do
       CryptoPoller.Repo,
       CryptoPoller.Pipeline.ArchiveProducer,
       CryptoPoller.Pipeline.ArchiveHandler,
-      CryptoPoller.Jobs.FetchPoolHistory
+      CryptoPoller.Jobs.FetchPoolHistory,
+      CryptoPoller.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
