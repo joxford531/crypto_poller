@@ -40,7 +40,7 @@ defmodule CryptoPoller.Currencies do
   def get_history_between(start_time, end_time) do
     Repo.all(
       from h in History,
-      where: h.timestamp >= ^start_time and h.time < ^end_time,
+      where: h.timestamp >= ^start_time and h.timestamp < ^end_time,
       order_by: [asc: h.timestamp]
     )
   end

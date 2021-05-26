@@ -16,7 +16,7 @@ config :ex_aws,
 config :ex_aws,
   json_codec: Jason
 
-config :weather_db, CryptoPoller.Scheduler,
+config :crypto_poller, CryptoPoller.Scheduler,
   timezone: "America/New_York",
   jobs: [
     # Every 5AM Eastern

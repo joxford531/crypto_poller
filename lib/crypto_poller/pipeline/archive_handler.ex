@@ -36,7 +36,7 @@ defmodule CryptoPoller.Pipeline.ArchiveHandler do
 
     {:ok, date} = Timex.format(start, "%Y-%m-%d", :strftime)
 
-    path = @write_path <> "/" <> date <> ".csv"
+    path = @write_path <> "/pool_history_" <> date <> ".csv"
 
     if File.exists?(@write_path) == false do
       File.mkdir!(@write_path)
@@ -48,7 +48,7 @@ defmodule CryptoPoller.Pipeline.ArchiveHandler do
   end
 
   defp write_currency_history_csv(start, finish) do
-    rows = CryptoPoller.Pools.get_history_between(start, finish)
+    rows = CryptoPoller.Currencies.get_history_between(start, finish)
 
     formatted_results = Enum.map(rows, fn row ->
       "#{row.timestamp},#{row.usd_value},#{row.difficulty},#{row.currency_id}" end)
@@ -58,7 +58,7 @@ defmodule CryptoPoller.Pipeline.ArchiveHandler do
 
     {:ok, date} = Timex.format(start, "%Y-%m-%d", :strftime)
 
-    path = @write_path <> "/" <> date <> ".csv"
+    path = @write_path <> "/currency_history_" <> date <> ".csv"
 
     if File.exists?(@write_path) == false do
       File.mkdir!(@write_path)
